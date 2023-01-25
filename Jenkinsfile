@@ -16,12 +16,12 @@ pipeline {
     stage('Generate Artifact') {
       steps {
             echo 'Hello World!'
-            script {
-              def data = "Hello Artifact"
-              writeFile(file: 'artifact.txt', text: data)
-              sh "ls -l"
-            }
-            archiveArtifacts(artifacts: 'artifact*.txt', fingerprint: true)
+            // script {
+            //   def data = "Hello Artifact"
+            //   writeFile(file: 'artifact.txt', text: data)
+            //   sh "ls -l"
+            // }
+            // archiveArtifacts(artifacts: 'artifact*.txt', fingerprint: true)
             
       }
     }
