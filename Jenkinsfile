@@ -16,7 +16,7 @@ pipeline {
     stage('Generate Artifact') {
       steps {
             echo 'Hello World!'
-            // echo 'Hello Artifact!' > artifact.txt
+            echo 'Hello Artifact!' > artifact.txt
             // archiveArtifacts(artifacts: 'artifact*.txt', fingerprint: true)
       }
     }
