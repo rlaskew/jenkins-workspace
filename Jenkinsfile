@@ -16,16 +16,7 @@ pipeline {
     stage('Generate Artifact') {
       steps {
             echo 'Hello Artifact!' > artifact.txt
-            echo ${PWD}
-            ls ${PWD}
             archiveArtifacts(artifacts: 'artifact*.txt', fingerprint: true)
-      }
-    }
-    stage('List Artifact') {
-      steps {
-            echo ${JENKINS_HOME}
-            ls ${JENKINS_HOME}
-            ls ${JENKINS_HOME}/fingerprints
       }
     }
   }
