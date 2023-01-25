@@ -22,8 +22,7 @@ pipeline {
                  writeFile(file: 'artifact.txt', text: data)
                  sh "ls -l"
             }
-            // archiveArtifacts(artifacts: 'artifact*.txt', fingerprint: true)
-            
+            archiveArtifacts(artifacts: 'artifact*.txt', fingerprint: true)
       }
     }
   }
