@@ -16,8 +16,11 @@ pipeline {
     stage('Generate Artifact') {
       steps {
             echo 'Hello World!'
-            sh -c "echo 'Hello bacon!' > artifact.txt"
-            // archiveArtifacts(artifacts: 'artifact*.txt', fingerprint: true)
+            def data = "Hello Artifact"
+            writeFile(file: 'artifact.txt', text: data)
+            sh "ls -l"
+            archiveArtifacts(artifacts: 'artifact*.txt', fingerprint: true)
+            
       }
     }
   }
