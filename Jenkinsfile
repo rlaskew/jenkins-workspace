@@ -16,9 +16,10 @@ pipeline {
             sleep 1
           }
         }
+
         stage('Say Goodbye Again! from github editor') {
           steps {
-            echo 'Goodbye!'
+            echo 'Goodbye! Again'
             sleep 1
           }
         }
