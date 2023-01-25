@@ -4,20 +4,23 @@ pipeline {
     BUZZ_NAME = "WORKER BEE"
   }
   stages {
-    parallel {
-      stage('Buzz Build') {
-        steps {
-              echo 'Hello World!'
-              sh 'java -version'
+    stage('Buzz Stuff') {
+      parallel {
+        stage('Buzz Build') {
+          steps {
+                echo 'Hello World!'
+                sh 'java -version'
+          }
+        }
+        stage('Buzz Test') {
+          steps {
+                echo 'Hello World!'
+                sh 'java -version'
+                echo 'I am ${BUZZ_NAME}'
+          }
         }
       }
-      stage('Buzz Test') {
-        steps {
-              echo 'Hello World!'
-              sh 'java -version'
-              echo 'I am ${BUZZ_NAME}'
-        }
-      }
+    }
     stage('Generate Artifact') {
       steps {
             echo 'Hello World!'
@@ -29,7 +32,6 @@ pipeline {
             }
             archiveArtifacts(artifacts: 'artifact*.txt', fingerprint: true)
       }
-    }
     }
   }
 }
