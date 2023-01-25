@@ -17,11 +17,11 @@ pipeline {
       steps {
             echo 'Hello World!'
             sh "ls -l"
-            // script {
+            script {
             //   def data = "Hello Artifact"
             //   writeFile(file: 'artifact.txt', text: data)
-            //   sh "ls -l"
-            // }
+                 sh "ls -l"
+            }
             // archiveArtifacts(artifacts: 'artifact*.txt', fingerprint: true)
             
       }
