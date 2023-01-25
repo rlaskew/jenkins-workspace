@@ -4,7 +4,6 @@ pipeline {
     BUZZ_NAME = "WORKER BEE"
   }
   stages {
-    parallel {
       stage('Buzz Build') {
         steps {
               echo 'Hello World!'
@@ -18,7 +17,6 @@ pipeline {
               echo 'I am ${BUZZ_NAME}'
         }
       }
-    }
     stage('Generate Artifact') {
       steps {
             echo 'Hello World!'
