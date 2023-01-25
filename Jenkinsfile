@@ -4,17 +4,19 @@ pipeline {
     BUZZ_NAME = "WORKER BEE"
   }
   stages {
-    stage('Buzz Build') {
-      steps {
-            echo 'Hello World!'
-            sh 'java -version'
+    parallel {
+      stage('Buzz Build') {
+        steps {
+              echo 'Hello World!'
+              sh 'java -version'
+        }
       }
-    }
-    stage('Buzz Test') {
-      steps {
-            echo 'Hello World!'
-            sh 'java -version'
-            echo 'I am ${BUZZ_NAME}'
+      stage('Buzz Test') {
+        steps {
+              echo 'Hello World!'
+              sh 'java -version'
+              echo 'I am ${BUZZ_NAME}'
+        }
       }
     }
     stage('Generate Artifact') {
