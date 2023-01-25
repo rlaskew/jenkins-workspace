@@ -1,7 +1,7 @@
 pipeline {
   agent any
   environment {
-    
+    BUZZ_NAME = "WORKER BEE"
   }
   stages {
     stage('Buzz Build') {
@@ -14,6 +14,7 @@ pipeline {
       steps {
             echo 'Hello World!'
             sh 'java -version'
+            echo 'I am ${BUZZ_NAME}'
       }
     }
     stage('Generate Artifact') {
