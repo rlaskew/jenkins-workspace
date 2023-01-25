@@ -20,5 +20,23 @@ pipeline {
       }
     }
 
+    stage('Wave Hello') {
+      parallel {
+        stage('Wave Hello') {
+          steps {
+            echo 'Say something!'
+            sh 'echo hello'
+          }
+        }
+
+        stage('Nod Hello') {
+          steps {
+            echo 'Go Team!'
+          }
+        }
+
+      }
+    }
+
   }
 }
