@@ -16,6 +16,12 @@ pipeline {
             sleep 1
           }
         }
+        stage('Say Goodbye Again! from github editor') {
+          steps {
+            echo 'Goodbye!'
+            sleep 1
+          }
+        }
 
       }
     }
