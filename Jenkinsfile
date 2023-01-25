@@ -16,6 +16,7 @@ pipeline {
     stage('Generate Artifact') {
       steps {
             echo 'Hello World!'
+            sh "ls -l"
             // script {
             //   def data = "Hello Artifact"
             //   writeFile(file: 'artifact.txt', text: data)
