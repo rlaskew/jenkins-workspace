@@ -4,6 +4,7 @@ pipeline {
     BUZZ_NAME = "WORKER BEE"
   }
   stages {
+    parallel {
       stage('Buzz Build') {
         steps {
               echo 'Hello World!'
@@ -28,6 +29,7 @@ pipeline {
             }
             archiveArtifacts(artifacts: 'artifact*.txt', fingerprint: true)
       }
+    }
     }
   }
 }
