@@ -6,28 +6,25 @@ pipeline {
   stages {
         stage('Prod Only'){
           when {
-            beforeAgent true
-            anyOf {
-              branch 'prod'
-            }
+            branch 'prod'           
           }
           steps {
             echo 'Say something!'
             sh 'echo Prod_When!!'
           }
         }
-        stage('intermediate-pipeline Only'){
-          when {
-            beforeAgent true
-            anyOf {
-              branch 'intermediate-pipeline'
-            }
-          }
-          steps {
-            echo 'Say something!'
-            sh 'echo Intermediate_Pipeline_When!!'
-          }
-        }
+        // stage('intermediate-pipeline Only'){
+        //   when {
+        //     beforeAgent true
+        //     anyOf {
+        //       branch 'intermediate-pipeline'
+        //     }
+        //   }
+        //   steps {
+        //     echo 'Say something!'
+        //     sh 'echo Intermediate_Pipeline_When!!'
+        //   }
+        // }
         stage('Wave Hello') {
           agent { label 'default-node' }
           when {
