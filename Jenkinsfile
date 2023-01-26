@@ -9,8 +9,8 @@ pipeline {
           steps {
             echo 'Say something!'
             sh 'echo hello'
-            echo env.BRANCH_NAME
-            echo $JENKINS_IS_FUN
+            echo { env.BRANCH_NAME }
+            echo ${JENKINS_IS_FUN}
           }
           post {
              always {
