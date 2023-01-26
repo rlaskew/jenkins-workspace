@@ -1,5 +1,5 @@
 pipeline {
-  agent any
+  agent { label 'default-node' }
   stages {
     stage('Say Hello') {
       parallel {
