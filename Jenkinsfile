@@ -5,9 +5,7 @@ pipeline {
   }
   stages {
         stage('Prod Only'){
-          when {
-            branch 'prod'           
-          }
+          when { branch 'prod' }
           steps {
             echo 'Say something!'
             sh 'echo Prod_When!!'
