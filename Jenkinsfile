@@ -1,5 +1,5 @@
 pipeline {
-  agent default-node
+  agent any
   stages {
         stage('Wave Hello') {
           agent { label 'default-node' }
