@@ -4,24 +4,6 @@ pipeline {
     JENKINS_IS_FUN = 'Jenkins is fun'
   }
   stages {
-        stage('Prod Only') {
-          steps {
-            echo 'Say something!'
-            sh 'echo Prod_When!!'
-          }
-        }
-        // stage('intermediate-pipeline Only'){
-        //   when {
-        //     beforeAgent true
-        //     anyOf {
-        //       branch 'intermediate-pipeline'
-        //     }
-        //   }
-        //   steps {
-        //     echo 'Say something!'
-        //     sh 'echo Intermediate_Pipeline_When!!'
-        //   }
-        // }
         stage('Wave Hello') {
           agent { label 'default-node' }
           when {
