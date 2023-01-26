@@ -7,6 +7,17 @@ pipeline {
             echo 'Say something!'
             sh 'echo hello'
           }
+          post {
+             always {
+               echo "POST-always is awesome"
+             } 
+             success {
+               echo "POST-success is awesome"
+             } 
+             failure {
+               echo "POST-failure is NOT awesome"
+             } 
+          }
         }
 
         stage('Nod Hello') {
