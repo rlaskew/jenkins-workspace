@@ -10,7 +10,7 @@ pipeline {
             echo 'Say something!'
             sh 'echo hello'
             echo "${env.GIT_COMMIT}"
-            // echo "${env.JENKINS_IS_FUN}
+            echo "${env.JENKINS_IS_FUN}"
           }
           post {
              always {
@@ -47,12 +47,6 @@ pipeline {
           agent { label 'default-node' }
           steps {
             unstash 'echo.txt'
-          }
-        }
-        stage('Confirm Deploy to Staging') {
-          agent none
-          steps {
-            input(message: 'Deploy to Stage', ok: 'Yes')
           }
         }
   }
