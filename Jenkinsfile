@@ -26,7 +26,13 @@ pipeline {
           steps {
             stash 'echo.txt'
           }
-      }
+        }
+        stage('Unstash File') {
+          agent { label 'default-node' }
+          steps {
+            unstash 'echo.txt'
+          }
+        }
   }
 }
 
