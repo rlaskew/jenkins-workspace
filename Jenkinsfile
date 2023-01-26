@@ -1,8 +1,6 @@
 pipeline {
   agent none
   stages {
-    stage('Wave Hello') {
-      parallel {
         stage('Wave Hello') {
           agent { label 'default-node' }
           steps {
@@ -17,9 +15,18 @@ pipeline {
             echo 'Go Team!'
           }
         }
-
+        stage('Create File') {
+          agent { label 'default-node' }
+          steps {
+            sh "echo hello-world > echo.txt"
+          }
+        }
+        stage('Stash File') {
+          agent { label 'default-node' }
+          steps {
+            stash 'echo.txt'
+          }
       }
-    }
-
   }
 }
+
