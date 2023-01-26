@@ -4,8 +4,7 @@ pipeline {
     JENKINS_IS_FUN = 'Jenkins is fun'
   }
   stages {
-        stage('Prod Only'){
-          when { branch 'prod' }
+        stage('Prod Only') {
           steps {
             echo 'Say something!'
             sh 'echo Prod_When!!'
