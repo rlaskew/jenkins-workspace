@@ -33,6 +33,12 @@ pipeline {
             unstash 'echo.txt'
           }
         }
+        stage('Confirm Deploy to Staging') {
+          agent none
+          steps {
+            input(message: 'Deploy to Stage', ok: 'Yes')
+          }
+        }
   }
 }
 
