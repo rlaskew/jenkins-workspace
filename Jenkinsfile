@@ -1,11 +1,16 @@
 pipeline {
   agent any
+  environment {
+    JENKINS_IS_FUN = 'Jenkins is fun'
+  }
   stages {
         stage('Wave Hello') {
           agent { label 'default-node' }
           steps {
             echo 'Say something!'
             sh 'echo hello'
+            echo env.BRANCH_NAME
+            echo $JENKINS_IS_FUN
           }
           post {
              always {
