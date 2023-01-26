@@ -3,13 +3,35 @@ pipeline {
   environment {
     JENKINS_IS_FUN = 'Jenkins is fun'
   }
-  stages {
-        stage('Wave Hello') {
+  stages {        
+        stage('Intermediate-pipeline Branch Only') {
           agent { label 'default-node' }
           when {
-            beforeAgent true
-            anyOf
+            branch 'intermediate-pipeline'
           }
+          steps {
+            echo 'Say something!'
+            sh 'echo hello'
+            echo "${env.GIT_COMMIT}"
+            echo "${env.GIT_BRANCH}"
+            echo "${env.JENKINS_IS_FUN}"
+          }
+        }
+        stage('Main Branch Only') {
+          agent { label 'default-node' }
+          when {
+            branch 'main'
+          }
+          steps {
+            echo 'Say something!'
+            sh 'echo hello'
+            echo "${env.GIT_COMMIT}"
+            echo "${env.GIT_BRANCH}"
+            echo "${env.JENKINS_IS_FUN}"
+          }
+        }
+        stage('Wave Hello') {
+          agent { label 'default-node' }
           steps {
             echo 'Say something!'
             sh 'echo hello'
