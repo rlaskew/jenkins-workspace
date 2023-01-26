@@ -1,5 +1,5 @@
 pipeline {
-  agent none
+  agent default-node
   stages {
         stage('Wave Hello') {
           agent { label 'default-node' }
@@ -51,5 +51,16 @@ pipeline {
           }
         }
   }
+  post {
+             always {
+               echo "POST-always is awesome"
+             } 
+             success {
+               echo "POST-success is awesome"
+             } 
+             failure {
+               echo "POST-failure is NOT awesome"
+             } 
+          }
 }
 
