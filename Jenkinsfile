@@ -1,48 +1,91 @@
 pipeline {
   agent any
-  stages {
-    stage('Say Hello') {
-      parallel {
-        stage('Say Hello') {
-          steps {
-            echo 'Hello World!'
-            sh 'java -version'
+  environment {
+    JENKINS_IS_FUN = 'Jenkins is fun'
+  }
+  stages {        
+        stage('Intermediate-pipeline Branch Only') {
+          agent { label 'default-node' }
+          when {
+            branch 'intermediate-pipeline'
           }
-        }
-
-        stage('Say Goodbye') {
-          steps {
-            echo 'Goodbye!'
-            sleep 1
-          }
-        }
-        stage('Say Goodbye Again! from github editor') {
-          steps {
-            echo 'Goodbye!'
-            sleep 1
-          }
-        }
-
-      }
-    }
-
-    stage('Wave Hello') {
-      parallel {
-        stage('Wave Hello') {
           steps {
             echo 'Say something!'
             sh 'echo hello'
+            echo "${env.GIT_COMMIT}"
+            echo "${env.GIT_BRANCH}"
+            echo "${env.JENKINS_IS_FUN}"
+          }
+        }
+        stage('Main Branch Only') {
+          agent { label 'default-node' }
+          when {
+            branch 'main'
+          }
+          steps {
+            echo 'Say something!'
+            sh 'echo hello'
+            echo "${env.GIT_COMMIT}"
+            echo "${env.GIT_BRANCH}"
+            echo "${env.JENKINS_IS_FUN}"
+          }
+        }
+        stage('Wave Hello') {
+          agent { label 'default-node' }
+          steps {
+            echo 'Say something!'
+            sh 'echo hello'
+            echo "${env.GIT_COMMIT}"
+            echo "${env.JENKINS_IS_FUN}"
+          }
+          post {
+             always {
+               echo "POST-always is awesome"
+             } 
+             success {
+               echo "POST-success is awesome"
+             } 
+             failure {
+               echo "POST-failure is NOT awesome"
+             } 
           }
         }
 
         stage('Nod Hello') {
+          agent { label 'default-node' }
           steps {
             echo 'Go Team!'
           }
         }
-
-      }
-    }
-
+        stage('Create File') {
+          agent { label 'default-node' }
+          steps {
+            sh "echo hello-world > echo.txt"
+          }
+        }
+        stage('Stash File') {
+          agent { label 'default-node' }
+          steps {
+            stash 'echo.txt'
+          }
+        }
+        stage('Unstash File') {
+          agent { label 'default-node' }
+          steps {
+            unstash 'echo.txt'
+          }
+        }
   }
+  post {
+             always {
+               echo "POST-always is awesome"
+             } 
+             success {
+               echo "POST-success is awesome"
+             } 
+             failure {
+               echo "POST-failure is NOT awesome"
+             } 
+          }
 }
+
