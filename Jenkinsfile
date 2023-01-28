@@ -25,6 +25,8 @@ pipeline {
           steps {
             echo 'Say something!'
             sh 'echo hello'
+            sh 'echo hello > hello.txt'
+            sh 'cat hello.txt'
             echo "${env.GIT_COMMIT}"
             echo "${env.GIT_BRANCH}"
             echo "${env.JENKINS_IS_FUN}"
