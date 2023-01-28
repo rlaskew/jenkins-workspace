@@ -27,9 +27,11 @@ pipeline {
             sh 'echo hello'
             sh 'echo hello > hello.txt'
             sh 'cat hello.txt'
+            sh 'ls -l'
             echo "${env.GIT_COMMIT}"
             echo "${env.GIT_BRANCH}"
             echo "${env.JENKINS_IS_FUN}"
+            archiveArtifacts(artifacts: '*.txt', fingerprint: true)
           }
         }
         stage('Wave Hello') {
