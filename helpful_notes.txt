@@ -1,2 +1,7 @@
 default admin path = /path/TODO
 
+JENKINS_HOME = /var/lib/jenkins
+
+GLOBAL_CONFIG = /etc/default/jenkins
+
+sudo cat /var/lib/jenkins/secrets/initialAdminPassword
