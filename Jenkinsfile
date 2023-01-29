@@ -35,7 +35,7 @@ pipeline {
             echo "${env.GIT_COMMIT}"
             echo "${env.GIT_BRANCH}"
             echo "${env.JENKINS_IS_FUN}"
-            archiveArtifacts(artifacts: '*.txt', fingerprint: true)
+            // archiveArtifacts(artifacts: '*.txt', fingerprint: true)
           }
         }
         stage('Wave Hello') {
