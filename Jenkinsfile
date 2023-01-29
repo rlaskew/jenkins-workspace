@@ -29,13 +29,13 @@ pipeline {
             echo 'Say something!'
             sh 'echo hello'
             sh 'echo hello > hello.txt'
-            //sh 'cat hello.txt'
-            //sh 'ls -l'
-            //sh 'Is this picked up on commit by default?'
+            sh 'cat hello.txt'
+            sh 'ls -l'
+            sh 'echo "is this picked up by default?"'
             echo "${env.GIT_COMMIT}"
             echo "${env.GIT_BRANCH}"
             echo "${env.JENKINS_IS_FUN}"
-            // archiveArtifacts(artifacts: '*.txt', fingerprint: true)
+            archiveArtifacts(artifacts: '*.txt', fingerprint: true)
           }
         }
         stage('Wave Hello') {
