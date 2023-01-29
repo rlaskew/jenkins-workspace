@@ -28,6 +28,7 @@ pipeline {
             sh 'echo hello > hello.txt'
             sh 'cat hello.txt'
             sh 'ls -l'
+            sh 'Is this picked up on commit by default?'
             echo "${env.GIT_COMMIT}"
             echo "${env.GIT_BRANCH}"
             echo "${env.JENKINS_IS_FUN}"
@@ -82,7 +83,7 @@ pipeline {
   }
   post {
              always {
-               echo "POST-always is awesome"
+               echo "POST-always is awesome "
              } 
              success {
                echo "POST-success is awesome"
