@@ -24,7 +24,10 @@ pipeline {
         stage('Validate Shared Library'){
           agent { label 'default-node' }
           steps {
-            echoHelloWorldWithName(name: 'Kevin Bacon')
+            script {
+              def z = new org.foo.Zot()
+              z.echoHelloWorldWithName(name: 'Kevin Bacon')
+            }
           }
         }
         stage('Main Branch Only') {
