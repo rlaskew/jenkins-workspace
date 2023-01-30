@@ -26,6 +26,7 @@ pipeline {
           agent { label 'default-node' }
           steps {
             sh 'echo hello'
+            sayHello 'Dave'
             // script {
             //   sayInfo 'fStarting'
             //   sayInfo()
