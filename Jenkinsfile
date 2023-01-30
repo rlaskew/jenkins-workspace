@@ -1,4 +1,5 @@
-@Library('shared-training-library') _
+// @Library('shared-training-library') _
+@Library('sample-external-jenkins-library') _
 pipeline {
   agent any
   environment {
@@ -25,10 +26,10 @@ pipeline {
           agent { label 'default-node' }
           steps {
             script {
-              sayInfo 'Starting'
-              sayInfo()
-              def z = new org.foo.Zot()
-              z.echoHelloWorldWithName(name: 'Kevin Bacon')
+              //sayInfo 'fStarting'
+              //sayInfo()
+              //def z = new org.foo.Zot()
+              //z.echoHelloWorldWithName(name: 'Kevin Bacon')
             }
           }
         }
