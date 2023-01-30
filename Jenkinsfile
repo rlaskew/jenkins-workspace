@@ -24,8 +24,8 @@ pipeline {
         stage('Validate Shared Library'){
           agent { label 'default-node' }
           steps {
-            singleton-library.info 'Starting'
             script {
+              singleton-library.info 'Starting'
               def z = new org.foo.Zot()
               z.echoHelloWorldWithName(name: 'Kevin Bacon')
             }
