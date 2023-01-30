@@ -1,4 +1,4 @@
-@Library('shared-jenkins-library') _
+@Library('shared-training-library') _
 pipeline {
   agent any
   environment {
