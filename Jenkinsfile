@@ -26,6 +26,7 @@ pipeline {
           agent { label 'default-node' }
           steps {
             script {
+              echo Hello
               //sayInfo 'fStarting'
               //sayInfo()
               //def z = new org.foo.Zot()
