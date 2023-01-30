@@ -25,7 +25,8 @@ pipeline {
           agent { label 'default-node' }
           steps {
             script {
-              Zot.log.info 'Starting'
+              sayInfo 'Starting'
+              sayInfo()
               def z = new org.foo.Zot()
               z.echoHelloWorldWithName(name: 'Kevin Bacon')
             }
