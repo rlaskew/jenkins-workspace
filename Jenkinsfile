@@ -4,9 +4,9 @@ pipeline {
   environment {
     JENKINS_IS_FUN = 'Jenkins is fun'
   }
-  parameters {
-    string(name: 'SAMPLE_INPUT', defaultValue: 'Bacon!', description: 'Sample Input for Testing')
-  }
+  // parameters {
+  //   string(name: 'SAMPLE_INPUT', defaultValue: 'Bacon!', description: 'Sample Input for Testing')
+  // }
   stages {        
         stage('Intermediate-pipeline Branch Only') {
           agent { label 'default-node' }
