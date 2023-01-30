@@ -1,3 +1,4 @@
+@Library('shared-jenkins-library') _
 pipeline {
   agent any
   environment {
@@ -18,6 +19,12 @@ pipeline {
             echo "${env.GIT_COMMIT}"
             echo "${env.GIT_BRANCH}"
             echo "${env.JENKINS_IS_FUN}"
+          }
+        }
+        stage('Validate Shared Library'){
+          agent { label 'default-node' }
+          steps {
+            echoHelloWorldWithName(name: 'Kevin Bacon')
           }
         }
         stage('Main Branch Only') {
