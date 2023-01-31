@@ -28,8 +28,7 @@ pipeline {
           agent { label 'default-node' }
           steps {
             sh 'echo hello'
-            // sayHello 'Dave'
-            sayInfo 'Dave'
+            sayHello 'Dave'
             script {
               
               println GlobalVars.foo
