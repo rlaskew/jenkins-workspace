@@ -30,6 +30,7 @@ pipeline {
             sh 'echo hello'
             sayHello 'Dave'
             script {
+              import com.cleverbuilder.GlobalVars
               println GlobalVars.foo
             }
             // script {
