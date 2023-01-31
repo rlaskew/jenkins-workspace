@@ -4,6 +4,9 @@
 
 pipeline {
   agent any
+  options {
+    durabilityHint('PERFORMANCE_OPTIMIZED')
+  }
   environment {
     JENKINS_IS_FUN = 'Jenkins is fun'
     FILE_NAME = "some_script.sh"
