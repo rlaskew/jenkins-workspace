@@ -29,10 +29,10 @@ pipeline {
           steps {
             sh 'echo hello'
             sayHello 'Dave'
-            script {
+            // script {
               
-              println GlobalVars.foo
-            }
+            //   println GlobalVars.foo
+            // }
             // script {
             //   sayInfo 'fStarting'
             //   sayInfo()
