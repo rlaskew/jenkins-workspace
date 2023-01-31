@@ -32,7 +32,7 @@ pipeline {
             // sayHello 'Dave'
             sayIFixedIt 'Dave'
             script {                    
-               def lResource = libraryResource 'scripts/sayLibrary.sh'
+               def lResource = libraryResource "scripts/sayLibrary.sh"
                writeFile file: "${ env.FILE_NAME }", text: lResource
                sh """
                   chmod a+x ./${env.FILE_NAME}
