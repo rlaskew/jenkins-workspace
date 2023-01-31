@@ -6,6 +6,7 @@ pipeline {
   agent any
   environment {
     JENKINS_IS_FUN = 'Jenkins is fun'
+    FILE_NAME = "some_script.sh"
   }
   // parameters {
   //   string(name: 'SAMPLE_INPUT', defaultValue: 'Bacon!', description: 'Sample Input for Testing')
@@ -28,12 +29,16 @@ pipeline {
           agent { label 'default-node' }
           steps {
             sh 'echo hello'
-            // sayHello 'Dave'
+            sayHello 'Dave'
             sayIFixedIt 'Dave'
-            // script {
-              
-            //   println GlobalVars.foo
-            // }
+            script {                    
+               def lResource = libraryResource 'scripts/sayLibrary.sh'
+               writeFile file: "${ env.FILE_NAME }", text: lResource
+               sh """
+                  chmod a+x ./${env.FILE_NAME}
+                  ./${env.FILE_NAME}
+               """
+            }
             // script {
             //   sayInfo 'fStarting'
             //   sayInfo()
