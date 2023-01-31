@@ -1,6 +1,6 @@
 // @Library('shared-training-library') _
 @Library('sample-external-jenkins-library') _
-// import com.cleverbuilder.GlobalVars
+import com.cleverbuilder.GlobalVars
 
 pipeline {
   agent any
@@ -30,7 +30,7 @@ pipeline {
             sh 'echo hello'
             sayHello 'Dave'
             script {
-              import com.cleverbuilder.GlobalVars
+              
               println GlobalVars.foo
             }
             // script {
