@@ -29,7 +29,7 @@ pipeline {
           agent { label 'default-node' }
           steps {
             sh 'echo hello'
-            sayHello 'Dave'
+            // sayHello 'Dave'
             sayIFixedIt 'Dave'
             script {                    
                def lResource = libraryResource 'scripts/sayLibrary.sh'
