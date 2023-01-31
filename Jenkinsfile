@@ -6,6 +6,7 @@ pipeline {
   agent any
   options {
     durabilityHint('PERFORMANCE_OPTIMIZED')
+    preserveStashes(buildCount: 3)
   }
   environment {
     JENKINS_IS_FUN = 'Jenkins is fun'
