@@ -1,5 +1,5 @@
-//@Library('shared-training-library') _
-@Library('sample-external-jenkins-library') _
+@Library('shared-training-library') _
+// @Library('sample-external-jenkins-library') _
 //import com.cleverbuilder.GlobalVars
 
 pipeline {
@@ -28,7 +28,8 @@ pipeline {
           agent { label 'default-node' }
           steps {
             sh 'echo hello'
-            sayHello 'Dave'
+            // sayHello 'Dave'
+            sayIFixedIt 'Dave'
             // script {
               
             //   println GlobalVars.foo
